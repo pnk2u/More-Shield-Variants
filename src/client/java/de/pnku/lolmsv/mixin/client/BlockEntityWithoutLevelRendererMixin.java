@@ -42,23 +42,23 @@ public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceMa
 
 
     @Inject(method = "renderByItem", at = @At("TAIL"))
-    private void injectedRenderByItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource vertexConsumers, int light, int overlay, CallbackInfo cbi) {
+    private void injectedRenderByItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource source, int light, int overlay, CallbackInfo cbi) {
         if (stack.getItem() instanceof MoreShieldVariantItem) {
             BannerPatternLayers bannerPatternsComponent = (BannerPatternLayers)stack.getOrDefault(DataComponents.BANNER_PATTERNS, (Object)BannerPatternLayers.EMPTY);
-            DyeColor dyeColor2 = stack.get(DataComponents.BASE_COLOR);
-            boolean bl = !bannerPatternsComponent.layers().isEmpty() || dyeColor2 != null;
+            DyeColor shieldBannerDyeColor = stack.get(DataComponents.BASE_COLOR);
+            boolean hasBanner = !bannerPatternsComponent.layers().isEmpty() || shieldBannerDyeColor != null;
             poseStack.pushPose();
             poseStack.scale(1.0f, -1.0f, -1.0f);
             boolean usesVanillaTexture = (textureConfigCheck.contains(((MoreShieldVariantItem) stack.getItem()).msvWoodType));
             String vanillaTextureModifier = usesVanillaTexture ? "_vanilla" : "" ;
             String path = "entity/shield/" + BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath() + vanillaTextureModifier + "_base";
-            Material shieldBaseIdentifier = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path));
-            Material noPatternShieldBaseIdentifier = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path + "_nopattern"));
-            Material spriteIdentifier = bl ? shieldBaseIdentifier : noPatternShieldBaseIdentifier;
-            VertexConsumer vertexConsumer = spriteIdentifier.sprite().wrap(ItemRenderer.getFoilBufferDirect(vertexConsumers, this.shieldModel.renderType(spriteIdentifier.atlasLocation()), true, stack.hasFoil()));
+            Material shieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path));
+            Material noPatternShieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path + "_nopattern"));
+            Material spriteIdentifier = hasBanner ? shieldBaseTextureLocation : noPatternShieldBaseTextureLocation;
+            VertexConsumer vertexConsumer = spriteIdentifier.sprite().wrap(ItemRenderer.getFoilBufferDirect(source, this.shieldModel.renderType(spriteIdentifier.atlasLocation()), true, stack.hasFoil()));
             this.shieldModel.handle().render(poseStack, vertexConsumer, light, overlay);
-            if (bl) {
-                BannerRenderer.renderPatterns(poseStack, vertexConsumers, light, overlay, this.shieldModel.plate(), spriteIdentifier, false, Objects.requireNonNullElse(dyeColor2, DyeColor.WHITE), bannerPatternsComponent, stack.hasFoil());
+            if (hasBanner) {
+                BannerRenderer.renderPatterns(poseStack, source, light, overlay, this.shieldModel.plate(), spriteIdentifier, false, Objects.requireNonNullElse(shieldBannerDyeColor, DyeColor.WHITE), bannerPatternsComponent, stack.hasFoil());
             }
             else {
                 this.shieldModel.plate().render(poseStack, vertexConsumer, light, overlay);
