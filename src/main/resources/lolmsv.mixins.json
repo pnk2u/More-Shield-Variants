@@ -1,0 +1,15 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "de.pnku.lolmsv.mixin" ,
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "entity.LivingEntityMixin" ,
+    "entity.PlayerEntityMixin" ,
+    "item.ShieldItemMixin" ,
+    "recipe.ShieldDecorationRecipeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
