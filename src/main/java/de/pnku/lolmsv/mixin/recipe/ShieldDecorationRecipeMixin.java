@@ -1,7 +1,7 @@
 package de.pnku.lolmsv.mixin.recipe;
 
 import de.pnku.lolmsv.tag.MoreShieldVariantItemTags;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
@@ -57,7 +57,7 @@ public abstract class ShieldDecorationRecipeMixin extends CustomRecipe {
     }
 
     @Inject(method = "assemble*", at = @At("HEAD"), cancellable = true)
-    private void injectedAssemble(CraftingContainer craftingContainer, HolderLookup.Provider provider, CallbackInfoReturnable<ItemStack> cbireturn) {
+    private void injectedAssemble(CraftingContainer craftingContainer, RegistryAccess registryAccess, CallbackInfoReturnable<ItemStack> cbireturn) {
         ItemStack itemStack = ItemStack.EMPTY;
         ItemStack itemStack2 = ItemStack.EMPTY;
         for (int i = 0; i < craftingContainer.getContainerSize(); ++i) {
