@@ -2,7 +2,7 @@
     "parent": "builtin/entity",
     "gui_light": "front",
     "textures": {
-        "particle": "block/gold_block"
+        "particle": "block/oak_planks"
     },
     "display": {
         "thirdperson_righthand": {

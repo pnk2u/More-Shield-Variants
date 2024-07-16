@@ -1,6 +1,7 @@
 package de.pnku.lolmsv.config;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MoreShieldVariantsConfig {
@@ -43,93 +44,91 @@ public class MoreShieldVariantsConfig {
 
     public void setAcaciaUseCustom(boolean acaciaUseCustom) {
         this.acaciaUseCustom = acaciaUseCustom;
-        if (isAcaciaUseCustom()) textureConfigList.add("acacia");
-        else textureConfigList.remove("acacia");
+        if (isAcaciaUseCustom() && !textureConfigList.contains("acacia")) textureConfigList.add("acacia");
+        else if (!isAcaciaUseCustom()) textureConfigList.removeIf("acacia"::equalsIgnoreCase);
     }
 
     public boolean isAcaciaUseCustom() { return acaciaUseCustom; }
 
     public void setBambooUseCustom(boolean bambooUseCustom) {
         this.bambooUseCustom = bambooUseCustom;
-        if (isBambooUseCustom()) textureConfigList.add("bamboo");
-        else textureConfigList.remove("bamboo");
+        if (isBambooUseCustom() && !textureConfigList.contains("bamboo")) textureConfigList.add("bamboo");
+        else if (!isBambooUseCustom()) textureConfigList.removeIf("bamboo"::equalsIgnoreCase);
     }
 
     public boolean isBambooUseCustom() { return bambooUseCustom; }
 
     public void setBirchUseCustom(boolean birchUseCustom) {
         this.birchUseCustom = birchUseCustom;
-        if (isBirchUseCustom()) textureConfigList.add("birch");
-        else textureConfigList.remove("birch");
+        if (isBirchUseCustom() && !textureConfigList.contains("birch")) textureConfigList.add("birch");
+        else if (!isBirchUseCustom()) textureConfigList.removeIf("birch"::equalsIgnoreCase);
     }
 
     public boolean isBirchUseCustom() { return birchUseCustom; }
 
     public void setCherryUseCustom(boolean cherryUseCustom) {
         this.cherryUseCustom = cherryUseCustom;
-        if (isCherryUseCustom()) textureConfigList.add("cherry");
-        else textureConfigList.remove("cherry");
+        if (isCherryUseCustom() && !textureConfigList.contains("cherry")) textureConfigList.add("cherry");
+        else if (!isCherryUseCustom()) textureConfigList.removeIf("cherry"::equalsIgnoreCase);
     }
 
     public boolean isCherryUseCustom() { return cherryUseCustom; }
 
     public void setCrimsonUseCustom(boolean crimsonUseCustom) {
         this.crimsonUseCustom = crimsonUseCustom;
-        if (isCrimsonUseCustom()) textureConfigList.add("crimson");
-        else textureConfigList.remove("crimson");
+        if (isCrimsonUseCustom() && !textureConfigList.contains("crimson")) textureConfigList.add("crimson");
+        else if (!isCrimsonUseCustom()) textureConfigList.removeIf("crimson"::equalsIgnoreCase);
     }
 
     public boolean isCrimsonUseCustom() { return crimsonUseCustom; }
 
     public void setDarkOakUseCustom(boolean darkOakUseCustom) {
         this.darkOakUseCustom = darkOakUseCustom;
-        if (isDarkOakUseCustom()) textureConfigList.add("dark_oak");
-        else textureConfigList.remove("dark_oak");
+        if (isDarkOakUseCustom() && !textureConfigList.contains("dark_oak")) textureConfigList.add("dark_oak");
+        else if (!isDarkOakUseCustom()) textureConfigList.removeIf("dark_oak"::equalsIgnoreCase);
     }
 
     public boolean isDarkOakUseCustom() { return darkOakUseCustom; }
 
     public void setJungleUseCustom(boolean jungleUseCustom) {
         this.jungleUseCustom = jungleUseCustom;
-        if (isJungleUseCustom()) textureConfigList.add("jungle");
-        else textureConfigList.remove("jungle");
+        if (isJungleUseCustom() && !textureConfigList.contains("jungle")) textureConfigList.add("jungle");
+        else if (!isJungleUseCustom()) textureConfigList.removeIf("jungle"::equalsIgnoreCase);
     }
 
     public boolean isJungleUseCustom() { return jungleUseCustom; }
 
     public void setMangroveUseCustom(boolean mangroveUseCustom) {
         this.mangroveUseCustom = mangroveUseCustom;
-        if (isMangroveUseCustom()) textureConfigList.add("mangrove");
-        else textureConfigList.remove("mangrove");
+        if (isMangroveUseCustom() && !textureConfigList.contains("mangrove")) textureConfigList.add("mangrove");
+        else if (!isMangroveUseCustom()) textureConfigList.removeIf("mangrove"::equalsIgnoreCase);
     }
 
     public boolean isMangroveUseCustom() { return mangroveUseCustom; }
 
     public void setOakUseCustom(boolean oakUseCustom) {
         this.oakUseCustom = oakUseCustom;
-        if (isOakUseCustom()) textureConfigList.add("oak");
-        else textureConfigList.remove("oak");
+        if (isOakUseCustom() && !textureConfigList.contains("oak")) textureConfigList.add("oak");
+        else if (!isOakUseCustom()) textureConfigList.removeIf("oak"::equalsIgnoreCase);
     }
 
     public boolean isOakUseCustom() { return oakUseCustom; }
 
     public void setSpruceUseCustom(boolean spruceUseCustom) {
         this.spruceUseCustom = spruceUseCustom;
-        if (isSpruceUseCustom()) textureConfigList.add("spruce");
-        else textureConfigList.remove("spruce");
+        if (isSpruceUseCustom() && !textureConfigList.contains("spruce")) textureConfigList.add("spruce");
+        else if (!isSpruceUseCustom()) textureConfigList.removeIf("spruce"::equalsIgnoreCase);
     }
 
     public boolean isSpruceUseCustom() { return spruceUseCustom; }
 
     public void setWarpedUseCustom(boolean warpedUseCustom) {
         this.warpedUseCustom = warpedUseCustom;
-        if (isWarpedUseCustom()) textureConfigList.add("warped");
-        else textureConfigList.remove("warped");
+        if (isWarpedUseCustom() && !textureConfigList.contains("warped")) textureConfigList.add("warped");
+        else if (!isWarpedUseCustom()) textureConfigList.removeIf("warped"::equalsIgnoreCase);
     }
 
     public boolean isWarpedUseCustom() { return warpedUseCustom; }
-
-
 
     public void updateConfigs(MoreShieldVariantsConfig config) {
         acaciaUseCustom = config.isAcaciaUseCustom();
@@ -143,5 +142,30 @@ public class MoreShieldVariantsConfig {
         oakUseCustom = config.isOakUseCustom();
         spruceUseCustom = config.isSpruceUseCustom();
         warpedUseCustom = config.isWarpedUseCustom();
+    }
+    
+    public static void initialReadConfig() {
+        if (getInstance().isAcaciaUseCustom() && !textureConfigList.contains("acacia")) textureConfigList.add("acacia");
+        else if (!getInstance().isAcaciaUseCustom()) textureConfigList.removeIf("acacia"::equalsIgnoreCase);
+        if (getInstance().isBambooUseCustom() && !textureConfigList.contains("bamboo")) textureConfigList.add("bamboo");
+        else if (!getInstance().isBambooUseCustom()) textureConfigList.removeIf("bamboo"::equalsIgnoreCase);
+        if (getInstance().isBirchUseCustom() && !textureConfigList.contains("birch")) textureConfigList.add("birch");
+        else if (!getInstance().isBirchUseCustom()) textureConfigList.removeIf("birch"::equalsIgnoreCase);
+        if (getInstance().isCherryUseCustom() && !textureConfigList.contains("cherry")) textureConfigList.add("cherry");
+        else if (!getInstance().isCherryUseCustom()) textureConfigList.removeIf("cherry"::equalsIgnoreCase);
+        if (getInstance().isCrimsonUseCustom() && !textureConfigList.contains("crimson")) textureConfigList.add("crimson");
+        else if (!getInstance().isCrimsonUseCustom()) textureConfigList.removeIf("crimson"::equalsIgnoreCase);
+        if (getInstance().isDarkOakUseCustom() && !textureConfigList.contains("dark_oak")) textureConfigList.add("dark_oak");
+        else if (!getInstance().isDarkOakUseCustom()) textureConfigList.removeIf("dark_oak"::equalsIgnoreCase);
+        if (getInstance().isJungleUseCustom() && !textureConfigList.contains("jungle")) textureConfigList.add("jungle");
+        else if (!getInstance().isJungleUseCustom()) textureConfigList.removeIf("jungle"::equalsIgnoreCase);
+        if (getInstance().isMangroveUseCustom() && !textureConfigList.contains("mangrove")) textureConfigList.add("mangrove");
+        else if (!getInstance().isMangroveUseCustom()) textureConfigList.removeIf("mangrove"::equalsIgnoreCase);
+        if (getInstance().isOakUseCustom() && !textureConfigList.contains("oak")) textureConfigList.add("oak");
+        else if (!getInstance().isOakUseCustom()) textureConfigList.removeIf("oak"::equalsIgnoreCase);
+        if (getInstance().isSpruceUseCustom() && !textureConfigList.contains("spruce")) textureConfigList.add("spruce");
+        else if (!getInstance().isSpruceUseCustom()) textureConfigList.removeIf("spruce"::equalsIgnoreCase);
+        if (getInstance().isWarpedUseCustom() && !textureConfigList.contains("warped")) textureConfigList.add("warped");
+        else if (!getInstance().isWarpedUseCustom()) textureConfigList.removeIf("warped"::equalsIgnoreCase);
     }
 }

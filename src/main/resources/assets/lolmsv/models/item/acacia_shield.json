@@ -48,12 +48,6 @@
                 "blocking": 1
             },
             "model": "lolmsv:item/acacia_shield_blocking"
-        },
-        {
-            "predicate": {
-                "lolmsv:cloaking": 1
-            },
-            "model": "minecraft:item/air"
         }
     ]
 }

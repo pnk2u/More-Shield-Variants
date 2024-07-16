@@ -24,29 +24,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         super(entityType, level);
     }
 
-//    @Inject(method = "damageShield", at = @At("HEAD"), cancellable = true)
-//    private void injectedDamageShield(float amount, CallbackInfo cbi) {
-//        World world = this.getWorld();
-//        if (!(this.activeItemStack.getItem() instanceof ShieldItem)) {
-//            cbi.cancel();
-//        }
-//        if (!world.isClient()) {
-//            ((PlayerEntity)(Object)this).incrementStat(Stats.USED.getOrCreateStat(this.activeItemStack.getItem()));
-//        }
-//        if (this.activeItemStack.isEmpty()) {
-//            Hand hand = this.getActiveHand();
-//            if (hand == Hand.MAIN_HAND) {
-//                this.equipStack(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
-//            }
-//            else {
-//                this.equipStack(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
-//            }
-//            this.activeItemStack = ItemStack.EMPTY;
-//            this.playSound(SoundEvents.ITEM_SHIELD_BREAK, 0.8f, 0.8f + world.random.nextFloat()*0.4f);
-//        }
-//        cbi.cancel();
-//    }
-
     @Inject(method = "disableShield", at = @At("HEAD"))
     public void disableShield(CallbackInfo ci) {
         Player player = (Player) (Object) this;
@@ -59,7 +36,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
 
     @Inject(method = "hurtCurrentlyUsedShield", at = @At("HEAD"))
-    public void damageShield(float amount, CallbackInfo ci) {
+    public void hurtCurrentlyUsedShield(float amount, CallbackInfo ci) {
         Player player = (Player) (Object) this;
 
         if (!(player.getUseItem().getItem() instanceof ShieldItem)) {

@@ -16,6 +16,7 @@ public class MoreShieldVariantsClient implements ClientModInitializer {
     public void onInitializeClient() {
         MoreShieldVariantModelPredicateProvider.registerMoreShieldVariantItemModelPredicates();
         MoreShieldVariantsConfigJsonHelper.init();
+        MoreShieldVariantsConfig.initialReadConfig();
         
     }
     

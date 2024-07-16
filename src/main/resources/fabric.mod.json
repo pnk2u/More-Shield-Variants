@@ -6,7 +6,8 @@
   "name": "${mod_name}",
   "description": "${mod_description}",
   "authors": [
-    "pnku"
+    "pnku",
+    "Kaluhhh"
   ],
   "contact": {
     "homepage": "https://pnku.de",

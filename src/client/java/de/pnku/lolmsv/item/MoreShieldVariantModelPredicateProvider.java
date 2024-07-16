@@ -22,7 +22,6 @@ public class MoreShieldVariantModelPredicateProvider {
         MoreShieldVariantModelPredicateProvider.registerShield(MoreShieldVariantItems.JUNGLE_SHIELD);
         MoreShieldVariantModelPredicateProvider.registerShield(MoreShieldVariantItems.MANGROVE_SHIELD);
         MoreShieldVariantModelPredicateProvider.registerShield(MoreShieldVariantItems.OAK_SHIELD);
-        MoreShieldVariantModelPredicateProvider.registerShield(MoreShieldVariantItems.SPRUCE_SHIELD);
         MoreShieldVariantModelPredicateProvider.registerShield(MoreShieldVariantItems.WARPED_SHIELD);
         
     }

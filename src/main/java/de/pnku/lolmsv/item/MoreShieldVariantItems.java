@@ -64,12 +64,6 @@ public class MoreShieldVariantItems {
                 "oak", new Item.Properties()
                 .durability(336)));
     
-    public static final Item SPRUCE_SHIELD = MoreShieldVariantItems.registerItem(
-            "spruce_shield",
-        new MoreShieldVariantItem(
-                "spruce", new Item.Properties()
-                .durability(336)));
-    
     public static final Item WARPED_SHIELD = MoreShieldVariantItems.registerItem(
             "warped_shield",
         new MoreShieldVariantItem(
