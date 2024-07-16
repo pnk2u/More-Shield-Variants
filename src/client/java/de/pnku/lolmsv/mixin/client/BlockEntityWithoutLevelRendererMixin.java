@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.datafixers.util.Pair;
 import de.pnku.lolmsv.MoreShieldVariants;
 import de.pnku.lolmsv.config.MoreShieldVariantsConfig;
 import net.minecraft.client.model.ShieldModel;
@@ -14,12 +15,13 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.resources.model.Material;
-import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.entity.BannerPatternLayers;
+import net.minecraft.world.level.block.entity.BannerBlockEntity;
+import net.minecraft.world.level.block.entity.BannerPattern;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -42,9 +44,7 @@ public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceMa
     @Inject(method = "renderByItem", at = @At("TAIL"))
     private void injectedRenderByItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource source, int light, int overlay, CallbackInfo cbi) {
         if (stack.getItem() instanceof MoreShieldVariantItem) {
-            BannerPatternLayers bannerPatternsComponent = (BannerPatternLayers)stack.getOrDefault(DataComponents.BANNER_PATTERNS, (Object)BannerPatternLayers.EMPTY);
-            DyeColor shieldBannerDyeColor = stack.get(DataComponents.BASE_COLOR);
-            boolean hasBanner = !bannerPatternsComponent.layers().isEmpty() || shieldBannerDyeColor != null;
+            boolean hasBanner = BlockItem.getBlockEntityData(stack) != null;
             poseStack.pushPose();
             poseStack.scale(1.0f, -1.0f, -1.0f);
             boolean usesVanillaTexture = (textureConfigCheck.contains(((MoreShieldVariantItem) stack.getItem()).msvWoodType));
@@ -56,7 +56,8 @@ public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceMa
             VertexConsumer vertexConsumer = spriteIdentifier.sprite().wrap(ItemRenderer.getFoilBufferDirect(source, this.shieldModel.renderType(spriteIdentifier.atlasLocation()), true, stack.hasFoil()));
             this.shieldModel.handle().render(poseStack, vertexConsumer, light, overlay);
             if (hasBanner) {
-                BannerRenderer.renderPatterns(poseStack, source, light, overlay, this.shieldModel.plate(), spriteIdentifier, false, Objects.requireNonNullElse(shieldBannerDyeColor, DyeColor.WHITE), bannerPatternsComponent, stack.hasFoil());
+                List<Pair<Holder<BannerPattern>, DyeColor>> list = BannerBlockEntity.createPatterns(MoreShieldVariantItem.getColor(stack), BannerBlockEntity.getItemPatterns(stack));
+                BannerRenderer.renderPatterns(poseStack, source, light, overlay, this.shieldModel.plate(), spriteIdentifier, false, list, stack.hasFoil());
             }
             else {
                 this.shieldModel.plate().render(poseStack, vertexConsumer, light, overlay);
@@ -64,9 +65,7 @@ public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceMa
             poseStack.popPose();
         }
         if (stack.getItem().equals(Items.SHIELD)) {
-            BannerPatternLayers bannerPatternsComponent = (BannerPatternLayers)stack.getOrDefault(DataComponents.BANNER_PATTERNS, (Object)BannerPatternLayers.EMPTY);
-            DyeColor shieldBannerDyeColor = stack.get(DataComponents.BASE_COLOR);
-            boolean hasBanner = !bannerPatternsComponent.layers().isEmpty() || shieldBannerDyeColor != null;
+            boolean hasBanner = BlockItem.getBlockEntityData(stack) != null;
             poseStack.pushPose();
             poseStack.scale(1.0f, -1.0f, -1.0f);
             boolean usesVanillaTexture = (textureConfigCheck.contains("spruce"));
@@ -78,7 +77,8 @@ public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceMa
             VertexConsumer vertexConsumer = spriteIdentifier.sprite().wrap(ItemRenderer.getFoilBufferDirect(source, this.shieldModel.renderType(spriteIdentifier.atlasLocation()), true, stack.hasFoil()));
             this.shieldModel.handle().render(poseStack, vertexConsumer, light, overlay);
             if (hasBanner) {
-                BannerRenderer.renderPatterns(poseStack, source, light, overlay, this.shieldModel.plate(), spriteIdentifier, false, Objects.requireNonNullElse(shieldBannerDyeColor, DyeColor.WHITE), bannerPatternsComponent, stack.hasFoil());
+                List<Pair<Holder<BannerPattern>, DyeColor>> list = BannerBlockEntity.createPatterns(MoreShieldVariantItem.getColor(stack), BannerBlockEntity.getItemPatterns(stack));
+                BannerRenderer.renderPatterns(poseStack, source, light, overlay, this.shieldModel.plate(), spriteIdentifier, false, list, stack.hasFoil());
             }
             else {
                 this.shieldModel.plate().render(poseStack, vertexConsumer, light, overlay);
