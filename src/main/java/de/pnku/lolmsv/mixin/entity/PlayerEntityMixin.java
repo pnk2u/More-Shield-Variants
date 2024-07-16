@@ -48,7 +48,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         if (amount >= 3.0f) {
             int i = 1 + Mth.floor(amount);
             InteractionHand hand = player.getUsedItemHand();
-            player.getUseItem().hurtAndBreak(i, player, ((ShieldItem) player.getUseItem().getItem()).getEquipmentSlot());
+            player.getUseItem().hurtAndBreak(i, player, Player -> Player.broadcastBreakEvent(hand));
             if (player.getUseItem().isEmpty()) {
                 if (hand == InteractionHand.MAIN_HAND) {
                     player.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);

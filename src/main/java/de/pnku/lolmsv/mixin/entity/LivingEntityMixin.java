@@ -42,7 +42,7 @@ public abstract class LivingEntityMixin extends Entity {
     }
 
     @Inject(method = "getEquipmentSlotForItem", at = @At("TAIL"), cancellable = true)
-    private void injectedGetEquipmentSlotForItem(ItemStack stack, CallbackInfoReturnable<EquipmentSlot> cbireturn) {
+    private static void injectedGetEquipmentSlotForItem(ItemStack stack, CallbackInfoReturnable<EquipmentSlot> cbireturn) {
         if (stack.getItem() instanceof ShieldItem) {
             cbireturn.setReturnValue(EquipmentSlot.OFFHAND);
         }

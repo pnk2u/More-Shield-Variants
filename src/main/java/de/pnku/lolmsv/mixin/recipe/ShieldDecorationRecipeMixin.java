@@ -2,15 +2,16 @@ package de.pnku.lolmsv.mixin.recipe;
 
 import de.pnku.lolmsv.tag.MoreShieldVariantItemTags;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.BannerItem;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.ShieldDecorationRecipe;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BannerPatternLayers;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -43,8 +44,7 @@ public abstract class ShieldDecorationRecipeMixin extends CustomRecipe {
                 if (!itemStack.isEmpty()) {
                     cbireturn.setReturnValue(false);
                 }
-                BannerPatternLayers bannerPatternsComponent = itemStack3.getOrDefault(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY);
-                if (!bannerPatternsComponent.layers().isEmpty()) {
+                if (BlockItem.getBlockEntityData(itemStack3) != null) {
                     cbireturn.setReturnValue(false);
                 }
                 itemStack = itemStack3;
@@ -72,8 +72,10 @@ public abstract class ShieldDecorationRecipeMixin extends CustomRecipe {
         if (itemStack2.isEmpty()) {
             cbireturn.setReturnValue(itemStack2);
         }
-        itemStack2.set(DataComponents.BANNER_PATTERNS, itemStack.get(DataComponents.BANNER_PATTERNS));
-        itemStack2.set(DataComponents.BASE_COLOR, ((BannerItem)itemStack.getItem()).getColor());
+        CompoundTag compoundTag = BlockItem.getBlockEntityData(itemStack);
+        CompoundTag compoundTag2 = compoundTag == null ? new CompoundTag() : compoundTag.copy();
+        compoundTag2.putInt("Base", ((BannerItem)itemStack.getItem()).getColor().getId());
+        BlockItem.setBlockEntityData(itemStack2, BlockEntityType.BANNER, compoundTag2);
         cbireturn.setReturnValue(itemStack2);
     }
     
