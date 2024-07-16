@@ -3,6 +3,7 @@ package de.pnku.lolmsv.mixin.recipe;
 import de.pnku.lolmsv.tag.MoreShieldVariantItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.BannerItem;
 import net.minecraft.world.item.BlockItem;
@@ -22,8 +23,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class ShieldDecorationRecipeMixin extends CustomRecipe {
 
 
-    public ShieldDecorationRecipeMixin(CraftingBookCategory category) {
-        super(category);
+    public ShieldDecorationRecipeMixin(ResourceLocation id, CraftingBookCategory category) {
+        super(id, category);
     }
 
     @Inject(method = "matches*", at = @At("HEAD"), cancellable = true)
