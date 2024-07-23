@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "W": {
-      "tag": "minecraft:mangrove_planks"
+      "item": "minecraft:mangrove_planks"
     },
     "o": {
       "item": "minecraft:iron_ingot"

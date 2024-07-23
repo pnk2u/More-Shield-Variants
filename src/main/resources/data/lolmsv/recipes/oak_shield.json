@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "W": {
-      "tag": "minecraft:oak_planks"
+      "item": "minecraft:oak_planks"
     },
     "o": {
       "item": "minecraft:iron_ingot"

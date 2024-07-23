@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "W": {
-      "tag": "minecraft:jungle_planks"
+      "item": "minecraft:jungle_planks"
     },
     "o": {
       "item": "minecraft:iron_ingot"

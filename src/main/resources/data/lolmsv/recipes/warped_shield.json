@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "W": {
-      "tag": "minecraft:warped_planks"
+      "item": "minecraft:warped_planks"
     },
     "o": {
       "item": "minecraft:iron_ingot"
