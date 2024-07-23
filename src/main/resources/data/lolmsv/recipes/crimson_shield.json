@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "W": {
-      "tag": "minecraft:crimson_planks"
+      "item": "minecraft:crimson_planks"
     },
     "o": {
       "item": "minecraft:iron_ingot"

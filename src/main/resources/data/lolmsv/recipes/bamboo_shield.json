@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "W": {
-      "tag": "minecraft:bamboo_planks"
+      "item": "minecraft:bamboo_planks"
     },
     "o": {
       "item": "minecraft:iron_ingot"
