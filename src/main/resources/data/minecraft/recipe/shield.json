@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "W": {
-      "tag": "minecraft:spruce_planks"
+      "item": "minecraft:spruce_planks"
     },
     "o": {
       "item": "minecraft:iron_ingot"
