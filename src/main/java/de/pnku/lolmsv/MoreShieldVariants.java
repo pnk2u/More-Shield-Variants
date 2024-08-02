@@ -17,7 +17,7 @@ public class MoreShieldVariants implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		MoreShieldVariantItemGroups.registerMoreShieldVariantItemGroups();
-
+		MoreShieldVariantItems.registerShieldItems();
 	}
 
 }
