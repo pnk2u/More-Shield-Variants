@@ -3,6 +3,7 @@ package de.pnku.lolmsv.item;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.*;
+import org.jetbrains.annotations.NotNull;
 
 
 public class MoreShieldVariantItem extends ShieldItem implements Equipable {
@@ -15,7 +16,7 @@ public class MoreShieldVariantItem extends ShieldItem implements Equipable {
     }
 
     @Override
-    public String getDescriptionId(ItemStack stack) {
+    public @NotNull String getDescriptionId(ItemStack stack) {
         DyeColor dyeColor = stack.get(DataComponents.BASE_COLOR);
         if (dyeColor != null) {
             return this.getDescriptionId() + "." + dyeColor.getName();

@@ -32,7 +32,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"modid" {
+		"lolmsv" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

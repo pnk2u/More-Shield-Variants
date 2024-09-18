@@ -1,0 +1,19 @@
+{
+"item.minecraft.shield": "Fichtenholzschild",
+"item.minecraft.shield.black": "Schwarzes Fichtenholzschild",
+"item.minecraft.shield.red": "Rotes Fichtenholzschild",
+"item.minecraft.shield.green": "Grünes Fichtenholzschild",
+"item.minecraft.shield.brown": "Braunes Fichtenholzschild",
+"item.minecraft.shield.blue": "Blaues Fichtenholzschild",
+"item.minecraft.shield.purple": "Violettes Fichtenholzschild",
+"item.minecraft.shield.cyan": "Türkises Fichtenholzschild",
+"item.minecraft.shield.light_gray": "Hellgraues Fichtenholzschild",
+"item.minecraft.shield.gray": "Graues Fichtenholzschild",
+"item.minecraft.shield.pink": "Rosa Fichtenholzschild",
+"item.minecraft.shield.lime": "Hellgrünes Fichtenholzschild",
+"item.minecraft.shield.yellow": "Gelbes Fichtenholzschild",
+"item.minecraft.shield.light_blue": "Hellblaues Fichtenholzschild",
+"item.minecraft.shield.magenta": "Magenta Fichtenholzschild",
+"item.minecraft.shield.orange": "Oranges Fichtenholzschild",
+"item.minecraft.shield.white": "Weißes Fichtenholzschild"
+}
