@@ -1,6 +1,5 @@
 package de.pnku.lolmsv;
 
-import de.pnku.lolmsv.item.MoreShieldVariantItemGroups;
 import de.pnku.lolmsv.item.MoreShieldVariantItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -16,7 +15,6 @@ public class MoreShieldVariants implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
-		MoreShieldVariantItemGroups.registerMoreShieldVariantItemGroups();
 		MoreShieldVariantItems.registerShieldItems();
 	}
 

@@ -1,8 +1,11 @@
 package de.pnku.lolmsv.item;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.world.item.*;
 
+@Environment(value = EnvType.CLIENT)
 public class MoreShieldVariantItemGroups {
 
     public static void registerMoreShieldVariantItemGroups() {
