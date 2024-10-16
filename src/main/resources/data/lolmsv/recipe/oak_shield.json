@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "W": {
-      "item": "minecraft:oak_planks"
-    },
-    "o": {
-      "item": "minecraft:iron_ingot"
-    }
+    "W": "minecraft:oak_planks",
+    "o": "minecraft:iron_ingot"
   },
   "pattern": [
     "WoW",

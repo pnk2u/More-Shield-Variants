@@ -27,7 +27,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     @Inject(method = "disableShield", at = @At("HEAD"))
     public void disableShield(CallbackInfo ci) {
         Player player = (Player) (Object) this;
-        player.getCooldowns().addCooldown(player.getUseItem().getItem(), 100);
+        player.getCooldowns().addCooldown(player.getUseItem(), 100);
         player.stopUsingItem();
         player.level().broadcastEntityEvent(player, EntityEvent.SHIELD_DISABLED);
     }
@@ -47,10 +47,10 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         }
         if (amount >= 3.0f) {
             int i = 1 + Mth.floor(amount);
-            InteractionHand hand = player.getUsedItemHand();
-            player.getUseItem().hurtAndBreak(i, player, ((ShieldItem) player.getUseItem().getItem()).getEquipmentSlot());
+            InteractionHand interactionHand = player.getUsedItemHand();
+            player.getUseItem().hurtAndBreak(i, this, getSlotForHand(interactionHand));
             if (player.getUseItem().isEmpty()) {
-                if (hand == InteractionHand.MAIN_HAND) {
+                if (interactionHand == InteractionHand.MAIN_HAND) {
                     player.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
                 } else {
                     player.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
