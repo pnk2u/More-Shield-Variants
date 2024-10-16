@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "W": {
-      "item": "minecraft:crimson_planks"
-    },
-    "o": {
-      "item": "minecraft:iron_ingot"
-    }
+    "W": "minecraft:crimson_planks",
+    "o": "minecraft:iron_ingot"
   },
   "pattern": [
     "WoW",

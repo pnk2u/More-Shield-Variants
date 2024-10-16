@@ -40,7 +40,7 @@ public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceMa
 
 
     @Inject(method = "renderByItem", at = @At("TAIL"))
-    private void injectedRenderByItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource source, int light, int overlay, CallbackInfo cbi) {
+    private void injectedRenderByItem(ItemStack stack, ItemDisplayContext displayContext, PoseStack poseStack, MultiBufferSource source, int light, int overlay, CallbackInfo cbi) {
         if (stack.getItem() instanceof MoreShieldVariantItem) {
             BannerPatternLayers bannerPatternsComponent = (BannerPatternLayers)stack.getOrDefault(DataComponents.BANNER_PATTERNS, (Object)BannerPatternLayers.EMPTY);
             DyeColor shieldBannerDyeColor = stack.get(DataComponents.BASE_COLOR);
@@ -53,10 +53,10 @@ public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceMa
             Material shieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path));
             Material noPatternShieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path + "_nopattern"));
             Material spriteIdentifier = hasBanner ? shieldBaseTextureLocation : noPatternShieldBaseTextureLocation;
-            VertexConsumer vertexConsumer = spriteIdentifier.sprite().wrap(ItemRenderer.getFoilBufferDirect(source, this.shieldModel.renderType(spriteIdentifier.atlasLocation()), true, stack.hasFoil()));
+            VertexConsumer vertexConsumer = spriteIdentifier.sprite().wrap(ItemRenderer.getFoilBuffer(source, this.shieldModel.renderType(spriteIdentifier.atlasLocation()), displayContext == ItemDisplayContext.GUI, stack.hasFoil()));
             this.shieldModel.handle().render(poseStack, vertexConsumer, light, overlay);
             if (hasBanner) {
-                BannerRenderer.renderPatterns(poseStack, source, light, overlay, this.shieldModel.plate(), spriteIdentifier, false, Objects.requireNonNullElse(shieldBannerDyeColor, DyeColor.WHITE), bannerPatternsComponent, stack.hasFoil());
+                BannerRenderer.renderPatterns(poseStack, source, light, overlay, this.shieldModel.plate(), spriteIdentifier, false, Objects.requireNonNullElse(shieldBannerDyeColor, DyeColor.WHITE), bannerPatternsComponent, stack.hasFoil(), false);
             }
             else {
                 this.shieldModel.plate().render(poseStack, vertexConsumer, light, overlay);
@@ -75,10 +75,10 @@ public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceMa
             Material shieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path));
             Material noPatternShieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path + "_nopattern"));
             Material spriteIdentifier = hasBanner ? shieldBaseTextureLocation : noPatternShieldBaseTextureLocation;
-            VertexConsumer vertexConsumer = spriteIdentifier.sprite().wrap(ItemRenderer.getFoilBufferDirect(source, this.shieldModel.renderType(spriteIdentifier.atlasLocation()), true, stack.hasFoil()));
+            VertexConsumer vertexConsumer = spriteIdentifier.sprite().wrap(ItemRenderer.getFoilBuffer(source, this.shieldModel.renderType(spriteIdentifier.atlasLocation()), displayContext == ItemDisplayContext.GUI, stack.hasFoil()));
             this.shieldModel.handle().render(poseStack, vertexConsumer, light, overlay);
             if (hasBanner) {
-                BannerRenderer.renderPatterns(poseStack, source, light, overlay, this.shieldModel.plate(), spriteIdentifier, false, Objects.requireNonNullElse(shieldBannerDyeColor, DyeColor.WHITE), bannerPatternsComponent, stack.hasFoil());
+                BannerRenderer.renderPatterns(poseStack, source, light, overlay, this.shieldModel.plate(), spriteIdentifier, false, Objects.requireNonNullElse(shieldBannerDyeColor, DyeColor.WHITE), bannerPatternsComponent, stack.hasFoil(), false);
             }
             else {
                 this.shieldModel.plate().render(poseStack, vertexConsumer, light, overlay);
