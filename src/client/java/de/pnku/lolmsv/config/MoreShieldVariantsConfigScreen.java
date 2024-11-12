@@ -59,6 +59,13 @@ public class MoreShieldVariantsConfigScreen implements ModMenuApi {
                 .setTooltip(Component.translatable("config.shieldTexture_option.moreshieldvariants.darkOakUseCustom.tooltip"))
                 .build());
         shieldTexture.addEntry(configBuilder.entryBuilder()
+                .startBooleanToggle(Component.translatable("config.shieldTexture_option.moreshieldvariants.paleOakUseCustom"), MoreShieldVariantsConfig.getInstance().isPaleOakUseCustom())
+                .setDefaultValue(true)
+                .setSaveConsumer(paleOakUseCustomBoolean -> {
+                    MoreShieldVariantsConfig.getInstance().setPaleOakUseCustom(paleOakUseCustomBoolean);})
+                .setTooltip(Component.translatable("config.shieldTexture_option.moreshieldvariants.paleOakUseCustom.tooltip"))
+                .build());
+        shieldTexture.addEntry(configBuilder.entryBuilder()
                 .startBooleanToggle(Component.translatable("config.shieldTexture_option.moreshieldvariants.jungleUseCustom"), MoreShieldVariantsConfig.getInstance().isJungleUseCustom())
                 .setDefaultValue(true)
                 .setSaveConsumer(jungleUseCustomBoolean -> {

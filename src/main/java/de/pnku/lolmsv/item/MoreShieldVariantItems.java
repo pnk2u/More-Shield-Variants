@@ -22,6 +22,8 @@ public class MoreShieldVariantItems {
 
     public static final Item DARK_OAK_SHIELD = new MoreShieldVariantItem("dark_oak", new Item.Properties().durability(336));
 
+    public static final Item PALE_OAK_SHIELD = new MoreShieldVariantItem("pale_oak", new Item.Properties().durability(336));
+
     public static final Item JUNGLE_SHIELD = new MoreShieldVariantItem("jungle", new Item.Properties().durability(336));
     
     public static final Item MANGROVE_SHIELD = new MoreShieldVariantItem("mangrove", new Item.Properties().durability(336));
@@ -37,6 +39,7 @@ public class MoreShieldVariantItems {
         registerShieldItem(CHERRY_SHIELD);
         registerShieldItem(CRIMSON_SHIELD);
         registerShieldItem(DARK_OAK_SHIELD);
+        registerShieldItem(PALE_OAK_SHIELD);
         registerShieldItem(JUNGLE_SHIELD);
         registerShieldItem(MANGROVE_SHIELD);
         registerShieldItem(OAK_SHIELD);
