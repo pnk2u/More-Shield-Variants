@@ -12,6 +12,7 @@ public class MoreShieldVariantsConfig {
     private boolean cherryUseCustom;
     private boolean crimsonUseCustom;
     private boolean darkOakUseCustom;
+    private boolean paleOakUseCustom;
     private boolean jungleUseCustom;
     private boolean mangroveUseCustom;
     private boolean oakUseCustom;
@@ -27,6 +28,7 @@ public class MoreShieldVariantsConfig {
         cherryUseCustom = true;
         crimsonUseCustom = true;
         darkOakUseCustom = true;
+        paleOakUseCustom = true;
         jungleUseCustom = true;
         mangroveUseCustom = true;
         oakUseCustom = true;
@@ -90,6 +92,14 @@ public class MoreShieldVariantsConfig {
 
     public boolean isDarkOakUseCustom() { return darkOakUseCustom; }
 
+    public void setPaleOakUseCustom(boolean paleOakUseCustom) {
+        this.paleOakUseCustom = paleOakUseCustom;
+        if (isPaleOakUseCustom() && !textureConfigList.contains("pale_oak")) textureConfigList.add("pale_oak");
+        else if (!isPaleOakUseCustom()) textureConfigList.removeIf("pale_oak"::equalsIgnoreCase);
+    }
+
+    public boolean isPaleOakUseCustom() { return paleOakUseCustom; }
+
     public void setJungleUseCustom(boolean jungleUseCustom) {
         this.jungleUseCustom = jungleUseCustom;
         if (isJungleUseCustom() && !textureConfigList.contains("jungle")) textureConfigList.add("jungle");
@@ -137,6 +147,7 @@ public class MoreShieldVariantsConfig {
         cherryUseCustom = config.isCherryUseCustom();
         crimsonUseCustom = config.isCrimsonUseCustom();
         darkOakUseCustom = config.isDarkOakUseCustom();
+        paleOakUseCustom = config.isPaleOakUseCustom();
         jungleUseCustom = config.isJungleUseCustom();
         mangroveUseCustom = config.isMangroveUseCustom();
         oakUseCustom = config.isOakUseCustom();
@@ -157,6 +168,8 @@ public class MoreShieldVariantsConfig {
         else if (!getInstance().isCrimsonUseCustom()) textureConfigList.removeIf("crimson"::equalsIgnoreCase);
         if (getInstance().isDarkOakUseCustom() && !textureConfigList.contains("dark_oak")) textureConfigList.add("dark_oak");
         else if (!getInstance().isDarkOakUseCustom()) textureConfigList.removeIf("dark_oak"::equalsIgnoreCase);
+        if (getInstance().isPaleOakUseCustom() && !textureConfigList.contains("pale_oak")) textureConfigList.add("pale_oak");
+        else if (!getInstance().isPaleOakUseCustom()) textureConfigList.removeIf("pale_oak"::equalsIgnoreCase);
         if (getInstance().isJungleUseCustom() && !textureConfigList.contains("jungle")) textureConfigList.add("jungle");
         else if (!getInstance().isJungleUseCustom()) textureConfigList.removeIf("jungle"::equalsIgnoreCase);
         if (getInstance().isMangroveUseCustom() && !textureConfigList.contains("mangrove")) textureConfigList.add("mangrove");
