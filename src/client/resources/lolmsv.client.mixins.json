@@ -1,10 +1,10 @@
 {
-  "required": false,
+  "required": false ,
   "package": "de.pnku.lolmsv.mixin.client" ,
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_21" ,
   "client": [
-    "BlockEntityWithoutLevelRendererMixin"
-  ],
+    "ShieldSpecialRendererMixin"
+  ] ,
   "injectors": {
     "defaultRequire": 1
 	}
