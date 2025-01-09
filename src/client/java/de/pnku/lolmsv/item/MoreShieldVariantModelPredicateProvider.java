@@ -27,7 +27,7 @@ public class MoreShieldVariantModelPredicateProvider {
     }
 
     private static void registerShield(Item shield) {
-        ItemProperties.register(shield, ResourceLocation.parse("blocking"),
+        ItemProperties.register(shield, ResourceLocation.tryParse("blocking"),
             (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0f : 0.0f);
     }
 
