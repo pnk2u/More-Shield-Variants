@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
+  "group": "iron_shield",
   "key": {
     "W": {
       "item": "minecraft:dark_oak_planks"

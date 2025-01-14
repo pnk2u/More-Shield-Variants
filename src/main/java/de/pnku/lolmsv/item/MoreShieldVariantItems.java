@@ -8,6 +8,9 @@ import net.minecraft.core.Registry;
 import de.pnku.lolmsv.MoreShieldVariants;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MoreShieldVariantItems {
 
@@ -32,6 +35,8 @@ public class MoreShieldVariantItems {
     
     public static final Item WARPED_SHIELD = new MoreShieldVariantItem("warped", new Item.Properties().durability(337).fireResistant().component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
 
+    public static final List<Item> more_shields = new ArrayList<>();
+
     public static void registerShieldItems() {
         registerShieldItem(ACACIA_SHIELD);
         registerShieldItem(BAMBOO_SHIELD);
@@ -49,6 +54,7 @@ public class MoreShieldVariantItems {
         String shieldName = ((MoreShieldVariantItem) shieldItem).msvWoodType + "_shield";
         Registry.register(BuiltInRegistries.ITEM, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, shieldName), shieldItem);
         MoreShieldVariants.LOGGER.info("Registered: " + shieldName);
+        more_shields.add(shieldItem);
     }
     
 }

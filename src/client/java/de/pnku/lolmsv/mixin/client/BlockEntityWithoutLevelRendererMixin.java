@@ -7,6 +7,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import de.pnku.lolmsv.MoreShieldVariants;
 import de.pnku.lolmsv.config.MoreShieldVariantsConfig;
+import de.pnku.lolmsv.item.MoreShieldVariantItems;
+import de.pnku.lolmsv.tag.MoreShieldVariantItemTags;
 import net.minecraft.client.model.ShieldModel;
 import net.minecraft.client.renderer.blockentity.BannerRenderer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
@@ -20,6 +22,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
+import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -30,6 +33,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import de.pnku.lolmsv.item.MoreShieldVariantItem;
 
+import static de.pnku.lolmsv.MoreShieldVariants.isExtraShieldsLoaded;
 
 @Mixin(BlockEntityWithoutLevelRenderer.class)
 @Environment(value = EnvType.CLIENT)
@@ -40,8 +44,8 @@ public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceMa
 
 
     @Inject(method = "renderByItem", at = @At("TAIL"))
-    private void injectedRenderByItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource source, int light, int overlay, CallbackInfo cbi) {
-        if (stack.getItem() instanceof MoreShieldVariantItem) {
+    private void msv$injectedRenderByItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource source, int light, int overlay, CallbackInfo cbi) {
+        if (stack.is(MoreShieldVariantItemTags.SHIELDS) && !isExtraShieldsLoaded) {
             BannerPatternLayers bannerPatternsComponent = (BannerPatternLayers)stack.getOrDefault(DataComponents.BANNER_PATTERNS, (Object)BannerPatternLayers.EMPTY);
             DyeColor shieldBannerDyeColor = stack.get(DataComponents.BASE_COLOR);
             boolean hasBanner = !bannerPatternsComponent.layers().isEmpty() || shieldBannerDyeColor != null;
