@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
+  "group": "iron_shield_full",
   "key": {
     "W": {
       "item": "minecraft:birch_planks"
