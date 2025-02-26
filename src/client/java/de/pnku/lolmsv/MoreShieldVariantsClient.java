@@ -19,7 +19,6 @@ public class MoreShieldVariantsClient implements ClientModInitializer {
         MoreShieldVariantsConfigJsonHelper.init();
         MoreShieldVariantsConfig.initialReadConfig();
         if (!isExtraShieldsLoaded) {
-            MoreShieldVariantModelPredicateProvider.registerMoreShieldVariantItemModelPredicates();
             MoreShieldVariantItemGroups.registerMoreShieldVariantItemGroups();
         }
     }
