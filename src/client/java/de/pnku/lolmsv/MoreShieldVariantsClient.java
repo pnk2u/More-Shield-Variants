@@ -8,8 +8,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
-import static de.pnku.lolmsv.MoreShieldVariants.isExtraShieldsLoaded;
-
 
 @Environment(value = EnvType.CLIENT)
 public class MoreShieldVariantsClient implements ClientModInitializer {
@@ -19,10 +17,8 @@ public class MoreShieldVariantsClient implements ClientModInitializer {
     public void onInitializeClient() {
         MoreShieldVariantsConfigJsonHelper.init();
         MoreShieldVariantsConfig.initialReadConfig();
-        if (!isExtraShieldsLoaded) {
-            MoreShieldVariantModelPredicateProvider.registerMoreShieldVariantItemModelPredicates();
-            MoreShieldVariantItemGroups.registerMoreShieldVariantItemGroups();
-        }
+        MoreShieldVariantModelPredicateProvider.registerMoreShieldVariantItemModelPredicates();
+        MoreShieldVariantItemGroups.registerMoreShieldVariantItemGroups();
     }
     
 }
