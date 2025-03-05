@@ -3,8 +3,12 @@
   "category": "equipment",
   "group": "iron_shield",
   "key": {
-    "W": "minecraft:spruce_planks",
-    "o": "minecraft:iron_ingot"
+    "W": {
+      "item": "minecraft:spruce_planks"
+    },
+    "o": {
+      "item": "minecraft:iron_ingot"
+    }
   },
   "pattern": [
     "WoW",
