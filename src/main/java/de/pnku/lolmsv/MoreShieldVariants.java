@@ -3,7 +3,10 @@ package de.pnku.lolmsv;
 import de.pnku.lolmsv.item.MoreShieldVariantItems;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,9 +23,16 @@ public class MoreShieldVariants implements ModInitializer {
 		if (FabricLoader.getInstance().isModLoaded("shields")){
 			isExtraShieldsLoaded = true;
 		}
+		ResourceManagerHelper.registerBuiltinResourcePack(withModId("lolmsv-recipe-compat"),
+				FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow(),
+				FabricLoader.getInstance().isModLoaded("quad") ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL);
 		if (!isExtraShieldsLoaded) {
 		MoreShieldVariantItems.registerShieldItems();
 		}
+	}
+
+	public static ResourceLocation withModId(String path) {
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 	}
 
 }
