@@ -26,21 +26,29 @@
         "recipe": "minecraft:shield"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_the_other_recipe": {
+      "conditions": {
+        "recipe": "lolmsv:warped_shield"
+      },
+      "trigger": "recipe_unlocked"
     }
   },
   "requirements": [
     [
+      "has_the_other_recipe",
       "has_the_recipe",
       "has_iron_ingot"
     ],
     [
+      "has_the_other_recipe",
       "has_the_recipe",
       "has_planks"
     ]
   ],
   "rewards": {
     "recipes": [
-      "lolmsv:warped_planks_shield"
+      "lolmsv:warped_shield"
     ]
   }
 }
