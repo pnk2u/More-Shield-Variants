@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import de.pnku.lolmsv.MoreShieldVariants;
 
 import java.io.*;
+import java.nio.file.*;
 
 public class MoreShieldVariantsConfigJsonHelper {
     private static final File folder = new File("config");
@@ -23,7 +24,15 @@ public class MoreShieldVariantsConfigJsonHelper {
         }
         if (folder.isDirectory()) {
         moreshieldvariantsConfig = new File(folder,"moreshieldvariants.json");
-        boolean seemsValid = moreshieldvariantsConfig.toString().trim().startsWith("{");
+        boolean seemsValid;
+        if (moreshieldvariantsConfig.exists()) {
+            try {
+                String moreshieldvariantsConfigJson = Files.readString(Path.of(moreshieldvariantsConfig.getPath()));
+                seemsValid = moreshieldvariantsConfigJson.trim().startsWith("{");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else { seemsValid = true; }
         if (!moreshieldvariantsConfig.exists() || !seemsValid) {
             if (!seemsValid) {MoreShieldVariants.LOGGER.info("Found invalid config file, creating new config file at './config/moreshieldvariants.json'.");}
             try {
