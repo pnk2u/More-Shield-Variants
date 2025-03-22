@@ -15,25 +15,25 @@ import java.util.List;
 public class MoreShieldVariantItems {
 
     // Shields
-    public static final Item ACACIA_SHIELD = new MoreShieldVariantItem("acacia", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
+    public static final Item ACACIA_SHIELD = new MoreShieldVariantItem("acacia", setProperties());
     
-    public static final Item BAMBOO_SHIELD = new MoreShieldVariantItem("bamboo", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
+    public static final Item BAMBOO_SHIELD = new MoreShieldVariantItem("bamboo", setProperties());
 
-    public static final Item BIRCH_SHIELD = new MoreShieldVariantItem("birch", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
+    public static final Item BIRCH_SHIELD = new MoreShieldVariantItem("birch", setProperties());
     
-    public static final Item CHERRY_SHIELD = new MoreShieldVariantItem("cherry", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
+    public static final Item CHERRY_SHIELD = new MoreShieldVariantItem("cherry", setProperties());
 
-    public static final Item CRIMSON_SHIELD = new MoreShieldVariantItem("crimson", new Item.Properties().durability(337).fireResistant().component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
+    public static final Item CRIMSON_SHIELD = new MoreShieldVariantItem("crimson", setProperties(true));
 
-    public static final Item DARK_OAK_SHIELD = new MoreShieldVariantItem("dark_oak", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
+    public static final Item DARK_OAK_SHIELD = new MoreShieldVariantItem("dark_oak", setProperties());
 
-    public static final Item JUNGLE_SHIELD = new MoreShieldVariantItem("jungle", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
+    public static final Item JUNGLE_SHIELD = new MoreShieldVariantItem("jungle", setProperties());
     
-    public static final Item MANGROVE_SHIELD = new MoreShieldVariantItem("mangrove", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
+    public static final Item MANGROVE_SHIELD = new MoreShieldVariantItem("mangrove", setProperties());
     
-    public static final Item OAK_SHIELD = new MoreShieldVariantItem("oak", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
+    public static final Item OAK_SHIELD = new MoreShieldVariantItem("oak", setProperties());
     
-    public static final Item WARPED_SHIELD = new MoreShieldVariantItem("warped", new Item.Properties().durability(337).fireResistant().component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY));
+    public static final Item WARPED_SHIELD = new MoreShieldVariantItem("warped", setProperties(true));
 
     public static final List<Item> more_shields = new ArrayList<>();
 
@@ -48,6 +48,17 @@ public class MoreShieldVariantItems {
         registerShieldItem(MANGROVE_SHIELD);
         registerShieldItem(OAK_SHIELD);
         registerShieldItem(WARPED_SHIELD);
+    }
+
+
+    private static Item.Properties setProperties() {
+        return setProperties(false);
+    }
+
+    private static Item.Properties setProperties(Boolean isNether) {
+        Item.Properties properties = new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY);
+        if (isNether) properties.fireResistant();
+        return properties;
     }
 
     private static void registerShieldItem(Item shieldItem) {
