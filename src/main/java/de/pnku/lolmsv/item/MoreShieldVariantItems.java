@@ -9,6 +9,8 @@ import net.minecraft.core.Registry;
 import de.pnku.lolmsv.MoreShieldVariants;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
 
+import static net.minecraft.world.item.Items.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,27 +18,27 @@ import java.util.List;
 public class MoreShieldVariantItems {
 
     // Shields
-    public static final Item ACACIA_SHIELD = new MoreShieldVariantItem("acacia", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.ACACIA_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item ACACIA_SHIELD = new MoreShieldVariantItem("acacia", setProperties(ACACIA_PLANKS));
 
-    public static final Item BAMBOO_SHIELD = new MoreShieldVariantItem("bamboo", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.BAMBOO_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item BAMBOO_SHIELD = new MoreShieldVariantItem("bamboo", setProperties(BAMBOO_PLANKS));
 
-    public static final Item BIRCH_SHIELD = new MoreShieldVariantItem("birch", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.BIRCH_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item BIRCH_SHIELD = new MoreShieldVariantItem("birch", setProperties(BIRCH_PLANKS));
 
-    public static final Item CHERRY_SHIELD = new MoreShieldVariantItem("cherry", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.CHERRY_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item CHERRY_SHIELD = new MoreShieldVariantItem("cherry", setProperties(CHERRY_PLANKS));
 
-    public static final Item CRIMSON_SHIELD = new MoreShieldVariantItem("crimson", new Item.Properties().durability(337).fireResistant().component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.CRIMSON_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item CRIMSON_SHIELD = new MoreShieldVariantItem("crimson", setProperties(CRIMSON_PLANKS, true));
 
-    public static final Item DARK_OAK_SHIELD = new MoreShieldVariantItem("dark_oak", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.DARK_OAK_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item DARK_OAK_SHIELD = new MoreShieldVariantItem("dark_oak", setProperties(DARK_OAK_PLANKS));
 
-    public static final Item PALE_OAK_SHIELD = new MoreShieldVariantItem("pale_oak", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.PALE_OAK_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item PALE_OAK_SHIELD = new MoreShieldVariantItem("pale_oak", setProperties(PALE_OAK_PLANKS));
 
-    public static final Item JUNGLE_SHIELD = new MoreShieldVariantItem("jungle", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.JUNGLE_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item JUNGLE_SHIELD = new MoreShieldVariantItem("jungle", setProperties(JUNGLE_PLANKS));
 
-    public static final Item MANGROVE_SHIELD = new MoreShieldVariantItem("mangrove", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.MANGROVE_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item MANGROVE_SHIELD = new MoreShieldVariantItem("mangrove", setProperties(MANGROVE_PLANKS));
 
-    public static final Item OAK_SHIELD = new MoreShieldVariantItem("oak", new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.OAK_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item OAK_SHIELD = new MoreShieldVariantItem("oak", setProperties(OAK_PLANKS));
 
-    public static final Item WARPED_SHIELD = new MoreShieldVariantItem("warped", new Item.Properties().durability(337).fireResistant().component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(Items.WARPED_PLANKS).equippableUnswappable(EquipmentSlot.OFFHAND));
+    public static final Item WARPED_SHIELD = new MoreShieldVariantItem("warped", setProperties(WARPED_PLANKS, true));
 
     public static final List<Item> more_shields = new ArrayList<>();
 
@@ -52,6 +54,17 @@ public class MoreShieldVariantItems {
         registerShieldItem(MANGROVE_SHIELD);
         registerShieldItem(OAK_SHIELD);
         registerShieldItem(WARPED_SHIELD);
+    }
+
+
+    private static Item.Properties setProperties(Item repairItem) {
+        return setProperties(repairItem, false);
+    }
+
+    private static Item.Properties setProperties(Item repairItem, Boolean isNether) {
+        Item.Properties properties = new Item.Properties().durability(336).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY).repairable(repairItem).equippableUnswappable(EquipmentSlot.OFFHAND);
+        if (isNether) properties.fireResistant();
+        return properties;
     }
 
     private static void registerShieldItem(Item shieldItem) {
