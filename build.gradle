@@ -129,7 +129,7 @@ dependencies {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 	// Mod Menu
-	modApi "com.terraformersmc:modmenu:${project.modmenu_version}"
+	modCompileOnlyApi "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
 static def version_reduced(String input) { // Reduces a version string by one minor version and sets patch to 0
