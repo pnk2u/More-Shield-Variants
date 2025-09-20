@@ -50,8 +50,15 @@
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.discord": "https://discord.com/invite/sA42pp6cuX"
+        "modmenu.discord": "https://discord.lieonlion.dev"
       }
+    },
+    "mc-publish": {
+      "modrinth": "CW2WWDUy",
+      "curseforge": "1065262",
+      "dependencies": [
+        "fabric-api(required)#(ignore)"
+      ]
     }
   }
 }
