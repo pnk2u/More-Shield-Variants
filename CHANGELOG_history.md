@@ -1,3 +1,6 @@
+### 1.3.11:
+- Fix _Vanilla / **Spruce** Shield_ not being craftable in some cases
+- `1.21.9`: Update to 1.21.9
 ### 1.3.10:
 - `1.21.5`: Update to 1.21.5
 - `1.21⁺`: Update Shield model/animation to slightly more modern variant from 1.20.3+
