@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.blockentity.BannerRenderer;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.special.ShieldSpecialRenderer;
 import net.minecraft.client.renderer.special.SpecialModelRenderer;
 import net.minecraft.client.resources.model.Material;
@@ -45,8 +46,8 @@ public abstract class ShieldSpecialRendererMixin implements SpecialModelRenderer
 
 
 
-    @Inject(method = "submit(Lnet/minecraft/core/component/DataComponentMap;Lnet/minecraft/world/item/ItemDisplayContext;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;IIZ)V", at = @At("TAIL"))
-    private void injectedRender(DataComponentMap dataComponentMap, ItemDisplayContext displayContext, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int light, int overlay, boolean hasFoil, CallbackInfo ci) {
+    @Inject(method = "submit(Lnet/minecraft/core/component/DataComponentMap;Lnet/minecraft/world/item/ItemDisplayContext;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;IIZI)V", at = @At("TAIL"))
+    private void injectedSubmit(DataComponentMap dataComponentMap, ItemDisplayContext itemDisplayContext, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int light, int overlay, boolean bl, int k, CallbackInfo ci) {
         String itemNameComponent = String.valueOf(dataComponentMap.get(DataComponents.ITEM_NAME));
         String materialName;
         if (itemNameComponent.contains("minecraft.shield")) {materialName = "spruce";}
@@ -62,12 +63,12 @@ public abstract class ShieldSpecialRendererMixin implements SpecialModelRenderer
             Material shieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path));
             Material noPatternShieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path + "_nopattern"));
             Material spriteIdentifier = hasBanner ? shieldBaseTextureLocation : noPatternShieldBaseTextureLocation;
-            submitNodeCollector.submitModelPart(this.model.handle(), poseStack, this.model.renderType(spriteIdentifier.atlasLocation()), light, overlay, this.materials.get(spriteIdentifier));
+            submitNodeCollector.submitModelPart(this.model.handle(), poseStack, this.model.renderType(spriteIdentifier.atlasLocation()), light, overlay, this.materials.get(spriteIdentifier), false, false, -1,(ModelFeatureRenderer.CrumblingOverlay) null, k);
             if (hasBanner) {
-                BannerRenderer.submitPatterns(this.materials, poseStack, submitNodeCollector, light, overlay, this.model, Unit.INSTANCE, spriteIdentifier, false, Objects.requireNonNullElse(shieldBannerDyeColor, DyeColor.WHITE), bannerPatternsComponent, null);
+                BannerRenderer.submitPatterns(this.materials, poseStack, submitNodeCollector, light, overlay, this.model, Unit.INSTANCE, spriteIdentifier, false, Objects.requireNonNullElse(shieldBannerDyeColor, DyeColor.WHITE), bannerPatternsComponent, false, (ModelFeatureRenderer.CrumblingOverlay) null, k);
             }
             else {
-                submitNodeCollector.submitModelPart(this.model.plate(), poseStack, this.model.renderType(spriteIdentifier.atlasLocation()), light, overlay, this.materials.get(spriteIdentifier));
+                submitNodeCollector.submitModelPart(this.model.plate(), poseStack, this.model.renderType(spriteIdentifier.atlasLocation()), light, overlay, this.materials.get(spriteIdentifier), false, bl, -1,(ModelFeatureRenderer.CrumblingOverlay) null, k);
             }
             poseStack.popPose();
     }
