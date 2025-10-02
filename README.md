@@ -22,6 +22,8 @@ Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1
 ### Changelog History
 
 <!--CHANGELOG:START-->
+### 1.3.12:
+- `1.21.9`: Fix missed changes in `1.21.9` release update
 ### 1.3.11:
 - Fix _Vanilla / **Spruce** Shield_ not being craftable in some cases
 - `1.21.9`: Update to 1.21.9
