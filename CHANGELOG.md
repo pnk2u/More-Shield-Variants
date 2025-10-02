@@ -1,3 +1,4 @@
-<!--publish=false-->
-### 1.3.12:
-- `1.21.9`: Fix missed changes in `1.21.9` release update
+<!--publish  =  true-->
+### 1.3.11:
+- Fix _Vanilla / **Spruce** Shield_ not being craftable in some cases
+- `1.21.9`: Update to 1.21.9
