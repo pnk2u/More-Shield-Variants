@@ -5,9 +5,10 @@
 
 ### Compatibility
 
-- Minecraft: `1.20.1`, `1.21(.1)`, `1.21.4`~`1.21.9`
+- Minecraft: `1.20.1`, `1.21(.1)`, `1.21.4`~`1.21.10`
 - Mod Loader: _Fabric_
-- Requires: [`Fabric API`](https://modrinth.com/mod/fabric-api)
+- Requires: [`Fabric API`](https://modrinth.com/mod/fabric-api), [<img width='16' src="https://raw.githubusercontent.com/shedaniel/cloth-config/v20/fabric/src/main/resources/icon.png"> `Cloth Config API`](https://modrinth.com/mod/cloth-config)
+- Recommends: [<img width='16' src="https://raw.githubusercontent.com/TerraformersMC/ModMenu/1.21.9/src/main/resources/assets/modmenu/icon.png"> `Mod Menu`](https://modrinth.com/mod/modmenu)
 
 ### ᴬ⃯ ᵦ⃔ Translations
 
