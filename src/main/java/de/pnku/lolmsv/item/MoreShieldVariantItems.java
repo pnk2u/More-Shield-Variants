@@ -2,7 +2,7 @@ package de.pnku.lolmsv.item;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -75,7 +75,7 @@ public class MoreShieldVariantItems {
 
     private static void registerShieldItem(Item shieldItem) {
         String shieldName = ((MoreShieldVariantItem) shieldItem).msvWoodType + "_shield";
-        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, shieldName), shieldItem);
+        Registry.register(BuiltInRegistries.ITEM, Identifier.tryBuild(MoreShieldVariants.MOD_ID, shieldName), shieldItem);
         MoreShieldVariants.LOGGER.info("Registered: " + shieldName);
         more_shields.add(shieldItem);
     }

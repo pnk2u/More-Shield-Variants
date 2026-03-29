@@ -7,7 +7,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import de.pnku.lolmsv.MoreShieldVariants;
 import de.pnku.lolmsv.config.MoreShieldVariantsConfig;
-import net.minecraft.client.model.ShieldModel;
+import net.minecraft.client.model.object.equipment.ShieldModel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BannerRenderer;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -20,7 +20,7 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.MaterialSet;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Unit;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
@@ -60,8 +60,8 @@ public abstract class ShieldSpecialRendererMixin implements SpecialModelRenderer
             boolean usesVanillaTexture = textureConfigCheck.contains(materialName);
             String vanillaTextureModifier = usesVanillaTexture ? "" : "_vanilla" ;
             String path = "entity/shield/" + materialName + "_shield" + vanillaTextureModifier + "_base";
-            Material shieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path));
-            Material noPatternShieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, ResourceLocation.tryBuild(MoreShieldVariants.MOD_ID, path + "_nopattern"));
+            Material shieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, Identifier.tryBuild(MoreShieldVariants.MOD_ID, path));
+            Material noPatternShieldBaseTextureLocation = new Material(Sheets.SHIELD_SHEET, Identifier.tryBuild(MoreShieldVariants.MOD_ID, path + "_nopattern"));
             Material spriteIdentifier = hasBanner ? shieldBaseTextureLocation : noPatternShieldBaseTextureLocation;
             submitNodeCollector.submitModelPart(this.model.handle(), poseStack, this.model.renderType(spriteIdentifier.atlasLocation()), light, overlay, this.materials.get(spriteIdentifier), false, false, -1,(ModelFeatureRenderer.CrumblingOverlay) null, k);
             if (hasBanner) {
