@@ -26,8 +26,6 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 import java.util.List;
 
-import static de.pnku.lolmsv.MoreShieldVariants.isExtraShieldsLoaded;
-
 @Mixin(BlockEntityWithoutLevelRenderer.class)
 @Environment(value = EnvType.CLIENT)
 public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceManagerReloadListener {
@@ -42,7 +40,7 @@ public abstract class BlockEntityWithoutLevelRendererMixin implements ResourceMa
 
     @ModifyVariable(method = "renderByItem", at = @At("STORE"))
     private Material modifiedVariableRenderByItemAtShieldMaterial(Material material, ItemStack stack, @Local boolean bl) {
-        if ((stack.is(MoreShieldVariantItemTags.SHIELDS) && !isExtraShieldsLoaded)) {
+        if ((stack.is(MoreShieldVariantItemTags.SHIELDS))) {
             boolean isVanillaShield = stack.getItem().equals(Items.SHIELD);
             String textureKey = isVanillaShield ? "spruce" : ((MoreShieldVariantItem) stack.getItem()).msvWoodType;
             String shieldPath = isVanillaShield ? "spruce_shield" : BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();
