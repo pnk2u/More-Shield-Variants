@@ -1,77 +1,100 @@
-# <img width='24' src="./src/main/resources/icon.png"> More Weapon Variants
-> ![Mod Icon](https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/More-Weapon-Variants/pres/logo/logo_c.png)
->
-> A simple mod adding wood variants for Minecraft's Weapon Items (Bow, Crossbow, Arrow and Sword variants).
+<a name="more-shield-variants"></a>
+# <img height='48' align=right src="./src/main/resources/icon.png"> <p align="center">&emsp;&emsp;&emsp; More Shield Variants <sub><a title="More Shield Variants on Modrinth" href="https://www.modrinth.com/mod/more-shield-variants"><img width="40" src="https://img.shields.io/badge/-%20-%230f91?style=flat&logo=modrinth"></a></sub> <a title="More Shield Variants on Curseforge" href="https://www.curseforge.com/minecraft/mc-mods/more-shield-variants"><sub><img width="40" src="https://img.shields.io/badge/--%23f062?style=flat&logo=curseforge"></sub></a> </p>
+> <img align=left height="153" src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/More-Shield-Variants/pres/logo/logo_c.png">  
+>  A mod adding wood variants for Minecraft's Shield. <br><br><br><br>  
+> <br>  
+> <br>  
+>  <!--<details><summary><h5>Show in-game example image</h5></summary><br><img src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/More-Shield-Variants/pres/mr_mini_banner.gif"><sup><br></sup></details>-->
+<br>
 
-### Compatibility
+<a name="compatibility"></a>
+### <img height="24" align="left" src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/puzzle.svg"> Compatibility
 
-- Minecraft: `1.20.1`, `1.21(.1)`, `1.21.4`~`1.21.9`
-- Mod Loader: _Fabric_
-- Requires: [`Fabric API`](https://modrinth.com/mod/fabric-api)
+<table>
+  <thead>
+    <tr>
+      <td><strong>Minecraft</strong></td>
+      <td>
+        <a href="https://modrinth.com/mod/more-shield-variants/versions?g=1.20.1"><code>1.20.1</code></a><br>
+        <a href="https://modrinth.com/mod/more-shield-variants/versions?g=1.21&g=1.21.1"><code>1.21(.1)</code></a>, <a href="https://modrinth.com/mod/more-shield-variants/versions?g=1.21.4&g=1.21.5&g=1.21.6&g=1.21.7&g=1.21.8&g=1.21.9&g=1.21.10?g=1.21.11"><code>1.21.4</code>~<code>1.21.11</code></a><br>
+        <a href="https://modrinth.com/mod/more-shield-variants/versions?g=26.1"><code>26.1</code></a>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Mod Loaders</strong></td>
+      <td><sub><img width="16" src="https://raw.githubusercontent.com/FabricMC/fabric/1.21.10/src/main/resources/assets/fabric/icon.png"></sub><a href="https://fabricmc.net/use/installer/"><code>Fabric Loader</code></a></td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <td><strong>Requires</strong></td>
+      <td>
+        <a href="https://modrinth.com/mod/fabric-api"><sub><img width="16" src="https://raw.githubusercontent.com/FabricMC/fabric/1.21.1/src/main/resources/assets/fabric/icon.png"></sub><code>Fabric API</code></a><br>
+        <a href="https://modrinth.com/mod/cloth-config"><sub><img width="16" src="https://raw.githubusercontent.com/shedaniel/cloth-config/v26.1/fabric/src/main/resources/icon.png"></sub><code>Cloth Config</code></a>
+      </td>
+    </tr>
+  </thead>
+  <thead>
+    <tr>
+      <td><strong>Recommends</strong></td>
+      <td>
+        <a href="https://modrinth.com/mod/modmenu"><sub><img width="16" src="https://raw.githubusercontent.com/TerraformersMC/ModMenu/26.1/src/main/resources/assets/modmenu/icon.png"></sub><code>Mod Menu</code></a><br>
+      </td>
+    </tr>
+  </thead>
+</table>
+<br>
 
-### ᴬ⃯ ᵦ⃔ Translations
+<a name="translations"></a>
+### <img height="24" align="left" src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/translate.svg"> Translations
 
-Currently available in:
-- English
-- German
-- Simplified Chinese (@[qiuqimc](/../../../../qiuqimc) with [PR #7](../../pull/7), added in [`1.3.1`](/../../#131))
-- Ukrainian (@[StarmanMine142](/../../../../StarmanMine142) with [PR #10](../../pull/10)/[11](/../../pull/11), added in [`1.3.3`](/../../#133))
+|Language|Translator|
+|--|--|
+|English||
+|German||
+|Chinese (zh_cn)|@[qiuqimc](/../../../../qiuqimc) with [PR #7](../../pull/7), added in [`1.3.1`](./CHANGELOG_history.md#1.3.1)|
+|Ukrainian|@[StarmanMine142](/../../../../StarmanMine142) with [PR #10](../../pull/10)/[11](../../pull/11), added in [`1.3.3`](./CHANGELOG_history.md#1.3.3)|
 
-Want to help translate? Feel free to open a PR to the **default branch (`1.21(.1)`)**.
+> [!NOTE]
+> > Want to help translate? If you can, please open a PR to the **default branch** [`1.21(.1)`](../../tree/1.21(.1)).  
+> > Otherwise, simply send your translation via email (contact@pnku.de) or join the [Discord](https://discord.lieonlion.dev).
 
-### Changelog History
+<br>
 
+
+<img height="53" align="left" src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/changelog.svg">  
+
+### Versions
+<a name="most-recent-version"></a>
 <!--CHANGELOG:START-->
-### 1.3.11:
+<a name="1.3.11"></a>
+#### 1.3.11[*](#footnote-*):
 - Fix _Vanilla / **Spruce** Shield_ not being craftable in some cases
-- `1.21.9`: Update to 1.21.9
-### 1.3.10:
-- `1.21.5`: Update to 1.21.5
-- `1.21⁺`: Update Shield model/animation to slightly more modern variant from 1.20.3+
-### 1.3.9:
-- Fix config file validity check incorrectly declaring all config files as invalid
-### 1.3.8:
-- Include built-in datapack that fixes inconsistent recipe overrides
-- Fix _**Warped** Shield_ recipe advancement not properly unlocking its recipe
-### 1.3.7:
-- `1.21.4` Hotfix: Require correct Minecraft version
-### 1.3.6:
-- Improve config check logic preventing the game from crashing on start-up when an invalid config is found
-### 1.3.5:
-- `1.21(.1)`:
-    - Fix game crashing upon trying to render vanilla (Spruce) Shield item
-    - Revert required version back down to 1.21
-### 1.3.4:
-- Add support for add-on mod [More Extra Shield Variants](https://modrinth.com/mod/more-extra-shield-variants)
-### 1.3.3:
-- Add Ukrainian Translation (by [Starman](https://modrinth.com/user/StarmanMine142))
-### 1.3.2:
-- `1.21.4`: Update to 1.21.4
-### 1.3.1:
-- Add Simplified Chinese Translation (by @[qiuqimc](https://github.com/qiuqimc))
-## 1.3.0:
-- `1.21.3⁺`: Add _**Pale Oak** Shield_
-### 1.2.2:
-- Move assets to client-side preventing console/log clogging
-- Add a German localization
-- `1.21.2`, `1.21.3`: Update to 1.21.2, 1.21.3
-### 1.2.1:
-- `1.21.x`: Implement enchantability for Shield variants
-## 1.2.0:
-- Fix server implementation (Thanks to [DevNemo](https://modrinth.com/user/DevNemo)! <3)
-### 1.1.1:
-- Add secondary shield variant recipes filling the two remaining empty slots with more planks as shown in this example:  
-> ![](https://uwu.catgirl.host/i/o8ckc.png)
-## 1.1.0:
-- Fix recipes not working
-- Remove unnecessary code improving compatibility
-- Update static mod icon
-<!--CHANGELOG:END-->
+- `1.21.9`: Update to <ins>1.21.9</ins>
 
-> _`The section above is automatically updated with each new release and only includes already published releases.`_
+<h2><sub><sub><sup><ins>Download 1.3.11 + 1.21(.1)</ins>:</sup>&#x200A;
+<a title="Download (Modrinth):&#10;More Shield Variants 1.3.11 + 1.21(.1)" href="https://modrinth.com/mod/more-shield-variants/version/LQcsnGUJ">
+<img width=26 src="https://img.shields.io/badge/-%20-%230f91?style=flat&logo=modrinth"></a>
+<sup><img width=7 height=10 src="https://raw.githubusercontent.com/pnk2u/resources/main/ModProjects/shared/pres/icon/separator_v.svg"></sup>
+<a title="Download (Curseforge):&#10;More Shield Variants 1.3.11 + 1.21(.1)" href="https://www.curseforge.com/minecraft/mc-mods/more-shield-variants/files/7023224">
+<img width=26 src="https://img.shields.io/badge/--%23f062?style=flat&logo=curseforge"></a>
+</sub></sub></h2>
+
+<!--CHANGELOG:END-->
+<a name="footnote-*"></a>
+> <strong>*</strong><sup>: Most recent version</sup>  
+> _`The version above is automatically updated with the newest release and only after it has been successfully published.`_
+
+<a name="changelog-history"></a>
+> [!TIP]
+> > Looking for changes of previous versions?  
+> > You can find them in the [changelog history](./CHANGELOG_history.md).
+
 ---
 #### Support/Contact
 - Suggestions? Questions? Bug reports?  
-  Feel free to [open an issue](https://github.com/pnk2u/More-Frame-Variants/issues)!  
+  Feel free to [open an issue](/../../issues)!  
   &nbsp;  
   You can also contact me via email at [contact@pnku.de](mailto:contact@pnku.de) or join the [Discord](https://dsc.lieonlion.dev) and contact me there.
