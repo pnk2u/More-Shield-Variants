@@ -2,22 +2,16 @@
   "schemaVersion": 1,
   "id": "${mod_id}",
   "version": "${mod_version}",
-
   "name": "${mod_name}",
   "description": "${mod_description}",
-  "authors": [
-    "pnku"
-  ],
-  "contributors": [
-    "hypothetiKal"
-  ],
+  "authors": ["pnku"],
+  "contributors": ["hypothetiKal"],
   "contact": {
     "homepage": "https://www.pnku.de",
     "email": "contact@pnku.de",
     "sources": "https://github.com/pnk2u/More-Shield-Variants",
     "issues": "https://github.com/pnk2u/More-Shield-Variants/issues"
   },
-
   "license": "${mod_license}",
   "icon": "icon.png",
 
@@ -36,16 +30,15 @@
   "mixins": [
     "lolmsv.mixins.json",
     {
-			"config": "lolmsv.client.mixins.json",
-			"environment": "client"
-		}
+      "config": "lolmsv.client.mixins.json",
+      "environment": "client"
+    }
   ],
-
   "depends": {
-		"fabricloader": ">=${loader_version}",
-		"minecraft": ">${minecraft_version_0} <${minecraft_version_1}",
-		"java": ">=21",
-		"fabric-api": "*"
+      "fabricloader": ">=${loader_version}",
+      "minecraft": ">${minecraft_version_0} <${minecraft_version_1}",
+      "java": ">=${java_version}",
+      "fabric-api": "*"
 	},
   "custom": {
     "modmenu": {
@@ -57,7 +50,9 @@
       "modrinth": "CW2WWDUy",
       "curseforge": "1065262",
       "dependencies": [
-        "fabric-api(required)#(ignore)"
+        "fabric-api(required)#(ignore)",
+        "cloth-config(required){modrinth:9s6osm5g}{curseforge:348521}",
+        "modmenu(optional){modrinth:mOgUt4GM}{curseforge:308702}"
       ]
     }
   }
