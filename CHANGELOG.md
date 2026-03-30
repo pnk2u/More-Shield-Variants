@@ -1,5 +1,5 @@
 <!--publish=false-->
-### 1.3.13:
+## 1.4.0:
 - `26.1`: 
   - Update to <ins>26.1</ins>
   - Implement _Villagers_ trading _Shield_ variants
