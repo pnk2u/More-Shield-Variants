@@ -4,8 +4,7 @@
   "package": "de.pnku.lolmsv.mixin" ,
   "compatibilityLevel": "JAVA_${java_version}" ,
   "mixins": [
-    "entity.LivingEntityMixin" ,
-    "recipe.ShieldDecorationRecipeMixin"
+    "entity.LivingEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

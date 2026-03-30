@@ -9,8 +9,9 @@ import net.minecraft.client.model.object.equipment.ShieldModel;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.special.ShieldSpecialRenderer;
 import net.minecraft.client.renderer.special.SpecialModelRenderer;
-import net.minecraft.client.resources.model.Material;
-import net.minecraft.client.resources.model.MaterialSet;
+import net.minecraft.client.resources.model.sprite.Material;
+import net.minecraft.client.resources.model.sprite.SpriteGetter;
+import net.minecraft.client.resources.model.sprite.SpriteId;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -31,11 +32,11 @@ import static de.pnku.lolmsv.MoreShieldVariants.isExtraShieldsLoaded;
 @Environment(value = EnvType.CLIENT)
 public abstract class ShieldSpecialRendererMixin implements SpecialModelRenderer<DataComponentMap> {
     @Final @Shadow private ShieldModel model;
-    @Shadow @Final private MaterialSet materials;
+    @Shadow @Final private SpriteGetter sprites;
     @Unique private List<String> textureConfigCheck = MoreShieldVariantsConfig.textureConfigList;
 
-    @ModifyVariable(method = "submit*", at = @At("STORE"))
-    private Material modifiedVariableRenderByItemAtShieldMaterial(Material material, DataComponentMap dataComponentMap, @Local(ordinal = 1) boolean bl) {
+    @ModifyVariable(method = "submit*", at = @At("STORE"), name = "base")
+    private SpriteId modifiedVariableRenderByItemAtShieldMaterial(SpriteId spriteId, DataComponentMap dataComponentMap, @Local(name = "hasPatterns") boolean bl) {
             ComponentContents contents = ((Component) dataComponentMap.getOrDefault(DataComponents.ITEM_NAME, "")).getContents();
             if (contents instanceof TranslatableContents translatableContents) {
                 String itemKey = translatableContents.getKey();
@@ -47,9 +48,9 @@ public abstract class ShieldSpecialRendererMixin implements SpecialModelRenderer
                     String shieldPath = isVanillaShield ? "spruce_shield" : itemKey.replace(msvPrefix, "");
                     String vanillaTextureModifier = textureConfigCheck.contains(textureKey) ? "" : "_vanilla";
                     String path = "entity/shield/" + shieldPath + vanillaTextureModifier + "_base" + (bl ? "" : "_nopattern");
-                    return new Material(Sheets.SHIELD_SHEET, Identifier.tryBuild(MoreShieldVariants.MOD_ID, path));
+                    return new SpriteId(Sheets.SHIELD_SHEET, Identifier.tryBuild(MoreShieldVariants.MOD_ID, path));
                 }
             }
-            return material;
+            return spriteId;
     }
 }

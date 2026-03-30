@@ -1,4 +1,8 @@
 {
-    "type": "minecraft:crafting_special_shielddecoration",
-    "category": "misc"
-  }
+  "type": "minecraft:crafting_special_shielddecoration",
+  "banner": "#minecraft:banners",
+  "result": {
+    "id": "lolmsv:warped_shield"
+  },
+  "target": "lolmsv:warped_shield"
+}

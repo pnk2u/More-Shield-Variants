@@ -1,0 +1,23 @@
+{
+  "merchant_predicate": {
+    "condition": "minecraft:entity_properties",
+    "entity": "this",
+    "predicate": {
+      "predicates": {
+        "minecraft:villager/variant": [
+          "minecraft:swamp"
+        ]
+      }
+    }
+  },
+  "gives": {
+    "id": "lolmsv:dark_oak_shield"
+  },
+  "max_uses": 12.0,
+  "reputation_discount": 0.2,
+  "wants": {
+    "count": 5.0,
+    "id": "minecraft:emerald"
+  },
+  "xp": 10.0
+}

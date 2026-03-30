@@ -1,4 +1,8 @@
 {
-    "type": "minecraft:crafting_special_shielddecoration",
-    "category": "misc"
-  }
+  "type": "minecraft:crafting_special_shielddecoration",
+  "banner": "#minecraft:banners",
+  "result": {
+    "id": "lolmsv:bamboo_shield"
+  },
+  "target": "lolmsv:bamboo_shield"
+}

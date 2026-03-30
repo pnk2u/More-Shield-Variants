@@ -1,6 +1,4 @@
 {
-    "comment": "Made by Stridey, from Vanilla Tweaks",
-    "parent": "builtin/entity",
 	"gui_light": "front",
     "textures": {
         "particle": "block/cherry_planks"

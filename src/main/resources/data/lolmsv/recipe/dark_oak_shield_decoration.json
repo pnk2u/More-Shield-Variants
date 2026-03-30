@@ -1,4 +1,8 @@
 {
-    "type": "minecraft:crafting_special_shielddecoration",
-    "category": "misc"
-  }
+  "type": "minecraft:crafting_special_shielddecoration",
+  "banner": "#minecraft:banners",
+  "result": {
+    "id": "lolmsv:dark_oak_shield"
+  },
+  "target": "lolmsv:dark_oak_shield"
+}
